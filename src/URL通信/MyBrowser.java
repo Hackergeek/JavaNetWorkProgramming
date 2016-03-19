@@ -67,7 +67,6 @@ public class MyBrowser implements ActionListener,HyperlinkListener{
 	}
 
 	//实现hyperlinkUpdate方法，当用户点击网页上的链接时，系统将调用此方法
-	@Override
 	public void hyperlinkUpdate(HyperlinkEvent e) {
 		if(e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
 			try {				
@@ -81,7 +80,6 @@ public class MyBrowser implements ActionListener,HyperlinkListener{
 	}
 
 	//当用户按下回车键后，调用此方法
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
 			URL url = new URL(urlText.getText());

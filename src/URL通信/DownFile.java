@@ -60,7 +60,6 @@ public class DownFile implements ActionListener {
 		new DownFile();
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
 			URL url = new URL(urlText.getText());
