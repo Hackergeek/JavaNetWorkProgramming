@@ -12,7 +12,11 @@ import java.io.Serializable;
  * @author skyward
  */
 public class Employee implements Serializable {
-    private int employeeNumber;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int employeeNumber;
     private String employeeName;
     public Employee(int num, String name) {
         employeeName = name;

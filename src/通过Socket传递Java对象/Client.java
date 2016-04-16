@@ -18,6 +18,7 @@ public class Client {
 //			System.out.println("连接成功");
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(
 					socket.getOutputStream());
+			System.out.println("创建输出流成功");
 			ObjectInputStream objectInputStream = new ObjectInputStream(
 					socket.getInputStream());
 			

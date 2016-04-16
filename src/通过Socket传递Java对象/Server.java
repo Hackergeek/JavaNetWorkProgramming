@@ -15,8 +15,12 @@ public class Server {
 			ServerSocket server = new ServerSocket(44444);
 			System.out.println("Server Waiting");
 			Socket pipe = server.accept();
-			ObjectInputStream objectInputStream = new ObjectInputStream(pipe.getInputStream());
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(pipe.getOutputStream());
+			System.out.println("创建输出流成功");
+			ObjectInputStream objectInputStream = new ObjectInputStream(pipe.getInputStream());
+			
+			
+			
 			employee = (Employee) objectInputStream.readObject();
 			employee.setEmployeeNumber(256);
 			employee.setEmployeeName("John");
