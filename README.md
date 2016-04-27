@@ -1,16 +1,3 @@
-# socket
-<h1>java网络编程——王一飞著</h1><br/>
-<h3>第一章 Java网络程序设计基础</h3><br/>
-  1.1 Java语言<br/>
-  1.2 网络基础知识<br/>
-  1.3 网络程序设计基础<br/>
-  本章小结<br/>
-  习题<br/>
-<h3>第二章 Internet寻址</h3>
-  2.1 创建InetAddress对象<br/>
-  2.2 根据域名查找IP地址<br/>
-  2.3 根据IP地址查找主机名<br/>
-  2.4 Inet4Address类和Inet6Address类<br/>
-  本章小结<br/>
-  习题<br/>
-<h3>第三章 URL通信</h3>
+<h4>目录</h4>
+<div id="catalog_text" class="customize">《Java网络程序设计》目录：<br />前言<br />第1章 Java网络程序设计基础<br />&nbsp;&nbsp;&nbsp; 1.1 Java语言<br />&nbsp;&nbsp;&nbsp; 1.2 网络基础知识<br />&nbsp;&nbsp;&nbsp; 1.3 网络程序设计基础<br />&nbsp;&nbsp;&nbsp; 本章小结<br />&nbsp;&nbsp;&nbsp; 习题<br />第2章 Internet寻址<br />&nbsp;&nbsp;&nbsp; 2.1 创建InetAddress对象<br />&nbsp;&nbsp;&nbsp; 2.2 根据域名查找IP地址<br />&nbsp;&nbsp;&nbsp; 2.3 根据IP地址查找主机名<br />&nbsp;&nbsp;&nbsp; 2.4 Inet4Address类和Inet6Address类<br />&nbsp;&nbsp;&nbsp; 本章小结<br />&nbsp;&nbsp;&nbsp; 习题<br />第3章 URL通信<br />&nbsp;&nbsp;&nbsp; 3.1 统一资源定位器(URL)<br />&nbsp;&nbsp;&nbsp; 3.2 URL类<br />&nbsp;&nbsp;&nbsp; 3.3 URL类的应用<br />&nbsp;&nbsp;&nbsp; 3.4 URLConnection类<br />&nbsp;&nbsp;&nbsp; 3.5 URLConnection类的应用<br />&nbsp;&nbsp;&nbsp; 本章?结<br />&nbsp;&nbsp;&nbsp; 习题<br />第4章 套接字<br />&nbsp;&nbsp;&nbsp; 4.1 客户端套接字(Socket)<br />&nbsp;&nbsp;&nbsp; 4.2 服务器套接字(ServerSocket)<br />&nbsp;&nbsp;&nbsp; 4.3 利用Socket进行Java网络编程<br />&nbsp;&nbsp;&nbsp; 4.4 Socket编程示例<br />&nbsp;&nbsp;&nbsp; 本章小结<br />&nbsp;&nbsp;&nbsp; 习题<br />第5章 数据报套接字<br />&nbsp;&nbsp;&nbsp; 5.1 数据报套接字概述&nbsp; ……第6章 多线程第7章 非阻塞Socket通信第8章 对象序列化第9章 套接字安全第10章 远程方法调用第11章&nbsp;代理服务器第12章 HTTP断点续传下载第13章 电子邮件的发送和接收第14章 FTP服务器第15章 Web服务器第16章 JSP和Servlet技术参考文献</div>
+
