@@ -99,18 +99,18 @@ public class HttpProxy extends Thread {
 					space = Character.isWhitespace((char) c);
 					switch (state) {
 					case 0:	
-						if(isspace)continue;
-						state=1;
+						if(space) continue;
+						state = 1;
 					case 1:
-						if(isspace){
-							state=2;
+						if(space){
+							state = 2;
 							continue;
 						}
 						line = line + c;
 						break;
 					case 2:
-						if(isspace)continue;
-						state=3;
+						if(space) continue;
+						state = 3;
 					case 3:
 						if (space) {
 							state = 4;
