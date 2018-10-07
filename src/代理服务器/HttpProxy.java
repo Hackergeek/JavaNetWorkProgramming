@@ -1,4 +1,4 @@
-package ´úÀí·şÎñÆ÷;
+package ä»£ç†æœåŠ¡å™¨;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,41 +10,41 @@ import java.text.DateFormat;
 import java.util.Date;
 
 /**
- * Ò»¸ö´úÀí·şÎñÆ÷µÄ»ù±¾Éè¼Æ£º £¨1£©µÈ´ıÀ´×Ô¿Í»§£¨Webä¯ÀÀÆ÷£©µÄÇëÇó £¨2£©Æô¶¯Ò»¸öĞÂµÄÏß³Ì£¬ÒÑ´¦Àí¿Í»§Á¬½ÓÇëÇó
- * £¨3£©¶ÁÈ¡ä¯ÀÀÆ÷ÇëÇóµÄµÚÒ»ĞĞ£¨¸ÃĞĞÄÚÈİ°üº¬ÁËÇëÇóµÄÄ¿±êURL£© £¨4£©·ÖÎöÇëÇóµÄµÚÒ»ĞĞÄÚÈİ£¬µÃµ½Ä¿±ê·şÎñÆ÷µÄÃû×ÖºÍ¶Ë¿Ú
- * £¨5£©´ò¿ªÒ»¸öÍ¨ÏòÄ¿±ê·şÎñÆ÷£¨»òÏÂÒ»¸ö´úÀí·şÎñÆ÷£©µÄSocket £¨6£©°ÑÇëÇóµÄµÚÒ»ĞĞ·¢ËÍµ½Êä³öSocket £¨7£©°ÑÇëÇóµÄÊ£Óà²¿·Ö·¢ËÍµ½Êä³öSocket
- * £¨8£©°ÑÄ¿±êWeb·şÎñÆ÷·µ»ØµÄÊı¾İ·¢ËÍ¸ø·¢³öÇëÇóµÄä¯ÀÀÆ÷
+ * ä¸€ä¸ªä»£ç†æœåŠ¡å™¨çš„åŸºæœ¬è®¾è®¡ï¼š ï¼ˆ1ï¼‰ç­‰å¾…æ¥è‡ªå®¢æˆ·ï¼ˆWebæµè§ˆå™¨ï¼‰çš„è¯·æ±‚ ï¼ˆ2ï¼‰å¯åŠ¨ä¸€ä¸ªæ–°çš„çº¿ç¨‹ï¼Œå·²å¤„ç†å®¢æˆ·è¿æ¥è¯·æ±‚
+ * ï¼ˆ3ï¼‰è¯»å–æµè§ˆå™¨è¯·æ±‚çš„ç¬¬ä¸€è¡Œï¼ˆè¯¥è¡Œå†…å®¹åŒ…å«äº†è¯·æ±‚çš„ç›®æ ‡URLï¼‰ ï¼ˆ4ï¼‰åˆ†æè¯·æ±‚çš„ç¬¬ä¸€è¡Œå†…å®¹ï¼Œå¾—åˆ°ç›®æ ‡æœåŠ¡å™¨çš„åå­—å’Œç«¯å£
+ * ï¼ˆ5ï¼‰æ‰“å¼€ä¸€ä¸ªé€šå‘ç›®æ ‡æœåŠ¡å™¨ï¼ˆæˆ–ä¸‹ä¸€ä¸ªä»£ç†æœåŠ¡å™¨ï¼‰çš„Socket ï¼ˆ6ï¼‰æŠŠè¯·æ±‚çš„ç¬¬ä¸€è¡Œå‘é€åˆ°è¾“å‡ºSocket ï¼ˆ7ï¼‰æŠŠè¯·æ±‚çš„å‰©ä½™éƒ¨åˆ†å‘é€åˆ°è¾“å‡ºSocket
+ * ï¼ˆ8ï¼‰æŠŠç›®æ ‡WebæœåŠ¡å™¨è¿”å›çš„æ•°æ®å‘é€ç»™å‘å‡ºè¯·æ±‚çš„æµè§ˆå™¨
  * 
  * @author skyward
  *
  */
 public class HttpProxy extends Thread {
-	// ÔÚ·ÅÆúÖ®Ç°³¢ÊÔÁ¬½ÓÔ¶³ÌÖ÷»úµÄ´ÎÊı
+	// åœ¨æ”¾å¼ƒä¹‹å‰å°è¯•è¿æ¥è¿œç¨‹ä¸»æœºçš„æ¬¡æ•°
 	static public int CONNECT_RETRIES = 5;
-	// ÔÚÁ½´ÎÁ¬½Ó³¢ÊÔÖ®¼äµÄÔİÍ£Ê±¼ä
+	// åœ¨ä¸¤æ¬¡è¿æ¥å°è¯•ä¹‹é—´çš„æš‚åœæ—¶é—´
 	static public int CONNECT_PAUSE = 5;
-	// µÈ´ıSocketÊäÈëµÄµÈ´ıÊ±¼ä
+	// ç­‰å¾…Socketè¾“å…¥çš„ç­‰å¾…æ—¶é—´
 	static public int TIME_OUT = 50;
-	// SocketÊäÈë»º³åµÄ´óĞ¡
+	// Socketè¾“å…¥ç¼“å†²çš„å¤§å°
 	static public int BUFSIZ = 1024;
-	// ÊÇ·ñÒªÇó´úÀí·şÎñÆ÷ÔÚÈÕÖ¾ÖĞ¼ÇÂ¼ËùÓĞÒÑ´«ÊäµÄÊı¾İ£¨true±íÊ¾¡°ÊÇ¡±£©
+	// æ˜¯å¦è¦æ±‚ä»£ç†æœåŠ¡å™¨åœ¨æ—¥å¿—ä¸­è®°å½•æ‰€æœ‰å·²ä¼ è¾“çš„æ•°æ®ï¼ˆtrueè¡¨ç¤ºâ€œæ˜¯â€ï¼‰
 	static public boolean logging = false;
-	// Ò»¸öOutputStream¶ÔÏó£¬Ä¬ÈÏÈÕÖ¾Àı³Ì½«Ïò¸ÃOutputStream¶ÔÏóÊä³öÈÕÖ¾ĞÅÏ¢
-	static public OutputStream log_C = null; // ä¯ÀÀÆ÷Êä³öÁ÷
-	static public OutputStream log_S = null; // WebÖ÷»úÊä³öÁ÷
-	// ´«ÈëÊı¾İÓÃµÄSocket
+	// ä¸€ä¸ªOutputStreamå¯¹è±¡ï¼Œé»˜è®¤æ—¥å¿—ä¾‹ç¨‹å°†å‘è¯¥OutputStreamå¯¹è±¡è¾“å‡ºæ—¥å¿—ä¿¡æ¯
+	static public OutputStream log_C = null; // æµè§ˆå™¨è¾“å‡ºæµ
+	static public OutputStream log_S = null; // Webä¸»æœºè¾“å‡ºæµ
+	// ä¼ å…¥æ•°æ®ç”¨çš„Socket
 	protected Socket socket;
-	// ÉÏ¼¶´úÀí·şÎñÆ÷£¬¿ÉÑ¡
+	// ä¸Šçº§ä»£ç†æœåŠ¡å™¨ï¼Œå¯é€‰
 	static private String parent = null;
 	static private int parentPort = -1;
 
-	// ÓÃÀ´°ÑÒ»¸ö´úÀí·şÎñÆ÷Á´½Óµ½ÁíÒ»¸ö´úÀí·şÎñÆ÷£¨ĞèÒªÖ¸¶¨ÁíÒ»¸ö´úÀí·şÎñÆ÷µÄÃû³ÆºÍ¶Ë¿Ú
+	// ç”¨æ¥æŠŠä¸€ä¸ªä»£ç†æœåŠ¡å™¨é“¾æ¥åˆ°å¦ä¸€ä¸ªä»£ç†æœåŠ¡å™¨ï¼ˆéœ€è¦æŒ‡å®šå¦ä¸€ä¸ªä»£ç†æœåŠ¡å™¨çš„åç§°å’Œç«¯å£
 	static public void setParentProxy(String name, int port) {
 		parent = name;
 		parentPort = port;
 	}
 
-	// ÔÚ¸ø¶¨SocketÉÏ´´½¨Ò»¸ö´úÀíÏß³Ì
+	// åœ¨ç»™å®šSocketä¸Šåˆ›å»ºä¸€ä¸ªä»£ç†çº¿ç¨‹
 	public HttpProxy(Socket s) {
 		socket = s;
 		start();
@@ -65,7 +65,7 @@ public class HttpProxy extends Thread {
 		}
 	}
 
-	// Ä¬ÈÏÇé¿öÏÂ£¬ÈÕÖ¾ĞÅÏ¢Êä³öµ½±ê×¼Êä³öÉè±¸£¬ÅÉÉúÀà¿ÉÒÔ¸²¸ÇËü
+	// é»˜è®¤æƒ…å†µä¸‹ï¼Œæ—¥å¿—ä¿¡æ¯è¾“å‡ºåˆ°æ ‡å‡†è¾“å‡ºè®¾å¤‡ï¼Œæ´¾ç”Ÿç±»å¯ä»¥è¦†ç›–å®ƒ
 	public String processHostName(String url, String host, int port,
 			Socket socket) {
 		DateFormat cal = DateFormat.getDateTimeInstance();
@@ -74,7 +74,7 @@ public class HttpProxy extends Thread {
 		return host;
 	}
 
-	// Ö´ĞĞ²Ù×÷µÄÏß³Ì
+	// æ‰§è¡Œæ“ä½œçš„çº¿ç¨‹
 	public void run() {
 		String line;
 		String host;
@@ -85,7 +85,7 @@ public class HttpProxy extends Thread {
 			InputStream is = socket.getInputStream();
 			OutputStream os = null;
 			try {
-				// »ñÈ¡ÇëÇóĞĞµÄÄÚÈİ
+				// è·å–è¯·æ±‚è¡Œçš„å†…å®¹
 				line = "";
 				host = "";
 				int state = 0;
@@ -98,29 +98,23 @@ public class HttpProxy extends Thread {
 						writeLog(c, true);
 					space = Character.isWhitespace((char) c);
 					switch (state) {
-					case 0:
-						if (space) {
-							continue;
-						}
+					case 0:	
+						if(space) continue;
 						state = 1;
-						break;
 					case 1:
-						if (space) {
+						if(space){
 							state = 2;
 							continue;
 						}
-						line = line + (char) c;
+						line = line + c;
 						break;
 					case 2:
-						if (space) {
-							continue;
-						}
+						if(space) continue;
 						state = 3;
-						break;
 					case 3:
 						if (space) {
 							state = 4;
-							// Ö»·ÖÎöÖ÷»úÃû³Æ²¿·Ö
+							// åªåˆ†æä¸»æœºåç§°éƒ¨åˆ†
 							String host0 = host;
 							int n;
 							n = host.indexOf("//");
@@ -129,7 +123,7 @@ public class HttpProxy extends Thread {
 							n = host.indexOf('/');
 							if (n != -1)
 								host = host.substring(0, n);
-							// ·ÖÎö¿ÉÄÜ´æÔÚµÄ¶Ë¿ÚºÅ
+							// åˆ†æå¯èƒ½å­˜åœ¨çš„ç«¯å£å·
 							n = host.indexOf(":");
 							if (n != -1) {
 								port = Integer.parseInt(host.substring(n + 1));
@@ -146,7 +140,7 @@ public class HttpProxy extends Thread {
 									outbound = new Socket(host, port);
 									break;
 								} catch (Exception e) {
-									// Á¬½ÓÊ§°Ü£¬µÈ´ı
+									// è¿æ¥å¤±è´¥ï¼Œç­‰å¾…
 									Thread.sleep(CONNECT_PAUSE);
 								}
 							}
@@ -211,7 +205,7 @@ public class HttpProxy extends Thread {
 				}
 			}
 		} catch (Exception e) {
-			System.out.println("PipeÒì³£" + e);
+			System.out.println("Pipeå¼‚å¸¸" + e);
 		}
 	}
 
@@ -240,7 +234,7 @@ public class HttpProxy extends Thread {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("ÔÚ¶Ë¿Ú808Æô¶¯´úÀí·şÎñÆ÷");
+		System.out.println("åœ¨ç«¯å£808å¯åŠ¨ä»£ç†æœåŠ¡å™¨");
 		HttpProxy.log_C = System.out;
 		HttpProxy.log_S = System.out;
 		HttpProxy.logging = false;
